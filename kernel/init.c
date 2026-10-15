@@ -249,6 +249,8 @@ static void z_sys_init_run_level(enum init_level level)
 	}
 }
 
+extern void boot_neuricstech_banner(void);
+
 /* defined in banner.c */
 extern void boot_banner(void);
 
@@ -308,6 +310,8 @@ static void bg_thread_main(void *unused1, void *unused2, void *unused3)
 #if defined(CONFIG_STACK_POINTER_RANDOM) && (CONFIG_STACK_POINTER_RANDOM != 0)
 	z_stack_adjust_initialized = 1;
 #endif /* CONFIG_STACK_POINTER_RANDOM */
+
+	boot_neuricstech_banner();
 	boot_banner();
 
 #ifdef CONFIG_STATIC_INIT_GNU
